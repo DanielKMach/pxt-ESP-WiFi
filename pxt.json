@@ -7,7 +7,9 @@
     },
     "files": [
         "README.md",
-        "main.ts"
+        "main.ts",
+        "_locales/pt-br/espwifi-strings.json",
+        "_locales/pt-pt/espwifi-strings.json"
     ],
     "testFiles": [
         "test.ts"

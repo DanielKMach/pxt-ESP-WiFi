@@ -1,0 +1,13 @@
+{
+	"espwifi.initialize|block": "inicializar ESP|TX %tx|RX %rx|à taxa de transmissão %baudrate",
+	"espwifi.connectWifi|block": "conectar à rede Wi-Fi %name usando a senha %password",
+	"espwifi.disconnectWifi|block": "desconectar da rede Wi-Fi",
+	"espwifi.request|block": "fazer solicitação à %ip %args",
+	"espwifi.restoreFactoryDefault|block": "restaurar ESP ao padrão de fábrica",
+	"espwifi.restart|block": "reiniciar ESP",
+	"espwifi.dataFromLastRequest|block": "dados da última solicitação",
+	"espwifi.isWifiConnected|block": "ESP está conectada à rede Wi-Fi",
+	"espwifi.connectedWifiName|block": "nome da rede Wi-Fi conectada ao ESP",
+	"espwifi.lastRequestSuccessful|block": "última solicitação executada com sucesso",
+	"espwifi.isReady|block": "ESP está pronto"
+}

@@ -142,10 +142,10 @@ namespace espwifi {
     }
 
     /**
-     * Returns the name of the connected Wi-Fi
+     * Returns the name of the ESP's connected Wi-Fi
      */
-    //% block="Wi-Fi network name"
-    export function wifiName(): string {
+    //% block="ESP connected Wi-Fi name"
+    export function connectedWifiName(): string {
         if (!isWifiConnected()) return ""
 
         const start = response.indexOf('"') + 1
