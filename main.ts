@@ -13,18 +13,18 @@ namespace espwifi {
     /**
      * Initializes serial conection to ESP
      */
-    //% block="Initialize ESP|%tx as TX|%rx as RX|baud rate: %baudrate"
+    //% block="initialize ESP|TX: %tx|RX: %rx|baud rate: %baudrate"
     //% tx.defl=SerialPin.P0 rx.defl=SerialPin.P1 baudrate.defl=115200
     export function initialize(tx: SerialPin, rx: SerialPin, baudrate: BaudRate) {
         serial.redirect(tx, rx, baudrate)
         basic.pause(1000)
-        if (!isReady()) return
     }
 
     /**
      * Connects to the wifi with the given name and password
      */
-    //% block="Connect to the Wi-Fi %name with the password %password"
+    //% block="connect to the Wi-Fi %name with the password %password"
+    //% name.defl="wifi name" password.defl="wifi password"
     export function connectWifi(name: string, password: string) {
         sendAT("CWMODE=1") // set to station mode
         basic.pause(500)
@@ -39,8 +39,8 @@ namespace espwifi {
     /**
      * Make a GET request with the ESP
      */
-    //% block="Make request to %ip %args"
-    //% ip.defl=api.thingspeak.com args.defl=/update?api_key=[your_key]%field0=69
+    //% block="make request to %ip %args"
+    //% ip.defl="api.thingspeak.com" args.defl="/update?api_key=[your_key]%field0=69"
     export function request(ip: string, args: string) {
 
         // Start connection to the IP
@@ -102,7 +102,7 @@ namespace espwifi {
     /**
      * Restore ESP to factory default settings
      */
-    //% block="Restore ESP to factory default"
+    //% block="restore ESP to factory default"
     export function restoreFactoryDefault() {
         sendAT("RESTORE") // restore to factory default settings
         basic.pause(1000)
@@ -111,7 +111,7 @@ namespace espwifi {
     /**
      * Restart ESP
      */
-    //% block="Restart ESP"
+    //% block="restart ESP"
     export function restart() {
         sendAT("RST")
         basic.pause(1000)
@@ -120,7 +120,7 @@ namespace espwifi {
     /**
      * Retrieves the data form the last request
      */
-    //% block="Data from last request"
+    //% block="data from last request"
     export function dataFromLastRequest(): string {
         if (!lastRequestSuccessful()) return ""
         if (!request_response.includes("+IPD")) return ""
@@ -144,7 +144,7 @@ namespace espwifi {
     /**
      * Returns the name of the connected Wi-Fi
      */
-    //% block="Wi-Fi Network name"
+    //% block="Wi-Fi network name"
     export function wifiName(): string {
         if (!isWifiConnected()) return ""
 
@@ -156,7 +156,7 @@ namespace espwifi {
     /**
      * Was last request sent successful?
      */
-    //% block="Was last request successful"
+    //% block="last request successful"
     export function lastRequestSuccessful(): boolean {
         return request_successful
     }
