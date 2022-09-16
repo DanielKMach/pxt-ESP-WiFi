@@ -1,18 +1,18 @@
 {
-    "name": "pxt-ESPWIFI",
-    "version": "1.0.0",
-    "description": "MakeCode extension for ESP Wifi modules using AT commands",
-    "dependencies": {
-        "core": "*"
-    },
-    "files": [
-        "README.md",
-        "main.ts",
-        "_locales/pt-br/espwifi-strings.json",
-        "_locales/pt-pt/espwifi-strings.json"
-    ],
-    "testFiles": [
-        "test.ts"
-    ],
-    "public": true
+	"name": "espwifi",
+	"version": "1.0.2",
+	"description": "MakeCode extension for ESP Wifi modules using AT commands",
+	"dependencies": {
+		"core": "*"
+	},
+	"files": [
+		"README.md",
+		"main.ts",
+		"_locales/pt-br/espwifi-strings.json",
+		"_locales/pt-pt/espwifi-strings.json"
+	],
+	"testFiles": [
+		"test.ts"
+	],
+	"public": true
 }
