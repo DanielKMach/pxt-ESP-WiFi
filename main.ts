@@ -40,7 +40,7 @@ namespace espwifi {
 	 * Make a GET request with the ESP
 	 */
 	//% block="make request to %ip %args"
-	//% ip.defl="api.thingspeak.com" args.defl="/update?api_key=[your_key]%field0=69"
+	//% ip.defl="api.thingspeak.com" args.defl="/update?api_key=[your_write_key]%field1=69"
 	export function request(ip: string, args: string) {
 
 		// Start connection to the IP
