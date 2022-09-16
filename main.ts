@@ -15,6 +15,7 @@ namespace espwifi {
 	 */
 	//% block="initialize ESP|TX: %tx|RX: %rx|baud rate: %baudrate"
 	//% tx.defl=SerialPin.P0 rx.defl=SerialPin.P1 baudrate.defl=115200
+	//% weight=100
 	export function initialize(tx: SerialPin, rx: SerialPin, baudrate: BaudRate) {
 		serial.redirect(tx, rx, baudrate)
 		basic.pause(1000)
@@ -25,6 +26,7 @@ namespace espwifi {
 	 */
 	//% block="connect to the Wi-Fi %name with the password %password"
 	//% name.defl="wifi name" password.defl="wifi password"
+	//% weight=80
 	export function connectWifi(name: string, password: string) {
 		sendAT("CWMODE=1") // set to station mode
 		basic.pause(500)
@@ -32,6 +34,7 @@ namespace espwifi {
 	}
 
 	//% block="disconnect from the Wi-Fi"
+	//% weight=75
 	export function disconnectWifi() {
 		sendAT("CWQAP")
 	}
@@ -41,6 +44,7 @@ namespace espwifi {
 	 */
 	//% block="make request to %ip %args"
 	//% ip.defl="api.thingspeak.com" args.defl="/update?api_key=[your_write_key]%field1=69"
+	//% weight=70
 	export function request(ip: string, args: string) {
 
 		// Start connection to the IP
@@ -103,6 +107,7 @@ namespace espwifi {
 	 * Restore ESP to factory default settings
 	 */
 	//% block="restore ESP to factory default"
+	//% weight=11
 	export function restoreFactoryDefault() {
 		sendAT("RESTORE") // restore to factory default settings
 		basic.pause(1000)
@@ -112,6 +117,7 @@ namespace espwifi {
 	 * Restart ESP
 	 */
 	//% block="restart ESP"
+	//% weight=12
 	export function restart() {
 		sendAT("RST")
 		basic.pause(1000)
@@ -121,6 +127,7 @@ namespace espwifi {
 	 * Retrieves the data form the last request
 	 */
 	//% block="data from last request"
+	//% weight=61
 	export function dataFromLastRequest(): string {
 		if (!lastRequestSuccessful()) return ""
 		if (!request_response.includes("+IPD")) return ""
@@ -136,6 +143,7 @@ namespace espwifi {
 	 * Is ESP connected to the Wi-Fi AP?
 	 */
 	//% block="ESP connected to Wi-Fi"
+	//% weight=72
 	export function isWifiConnected(): boolean {
 		sendAT("CWJAP?")
 		return response.includes("+CWJAP:")
@@ -145,6 +153,7 @@ namespace espwifi {
 	 * Returns the name of the ESP's connected Wi-Fi
 	 */
 	//% block="ESP connected Wi-Fi name"
+	//% weight=71
 	export function connectedWifiName(): string {
 		if (!isWifiConnected()) return ""
 
@@ -157,6 +166,7 @@ namespace espwifi {
 	 * Was last request sent successful?
 	 */
 	//% block="last request successful"
+	//% weight=62
 	export function lastRequestSuccessful(): boolean {
 		return request_successful
 	}
@@ -165,6 +175,7 @@ namespace espwifi {
 	 * Is ESP ready to use?
 	 */
 	//% block="ESP ready"
+	//% weight=90
 	export function isReady(): boolean {
 		return sendAT()
 	}
