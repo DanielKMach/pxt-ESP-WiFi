@@ -5,5 +5,10 @@
 		"outDir": "built",
 		"rootDir": "."
 	},
-	"exclude": ["pxt_modules/**/*test.ts"]
+	"exclude": [
+		"_examples",
+		"pxt_modules/microphone",
+
+		"test.ts"
+	]
 }

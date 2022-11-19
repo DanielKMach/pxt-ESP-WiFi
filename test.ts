@@ -1,23 +1,36 @@
+basic.showIcon(IconNames.Diamond, 0)
 espwifi.initialize(
-	SerialPin.P0,
-	SerialPin.P1,
-	BaudRate.BaudRate115200
+	SerialPin.P14,
+	SerialPin.P13,
+	115200,
+	true
 )
-
-if (!espwifi.isReady())
-	basic.showString("NOT READY")
+basic.showIcon(espwifi.isReady() ? IconNames.SmallHeart : IconNames.Sad, 0)
 
 if (!espwifi.isWifiConnected()) {
 	espwifi.connectWifi(
-		"[your wifi name]",
-		"[your wifi password]"
+		"your wifi name",
+		"your wifi password"
 	)
-	if (!espwifi.isWifiConnected())
-		basic.showString("CONNECTION ERROR")
 }
 
-basic.forever(function () {
-	espwifi.request("api.thingspeak.com", "/update?api_key=[your_write_key]%field1=" + input.temperature())
-	basic.showIcon(espwifi.lastRequestSuccessful() ? IconNames.Yes : IconNames.No)
-	basic.pause(60 * 60 * 1000)
+basic.showIcon(IconNames.Heart)
+
+// Set ThingSpeak's field 1 to a random number if button A is pressed
+input.onButtonPressed(Button.A, () => {
+	basic.showArrow(ArrowNames.North, 0)
+	espwifi.thingSpeakSetField(ThingSpeakField.Field1, Math.randomRange(1, 100), "your write key")
+
+	basic.showIcon(espwifi.lastRequestSuccessful() ? IconNames.Yes : IconNames.No, 0)
+})
+
+// Show ThingSpeak's field 1 latest value if button B is pressed
+input.onButtonPressed(Button.B, () => {
+	basic.showArrow(ArrowNames.South, 0)
+	const value = espwifi.thingSpeakGetField(ThingSpeakField.Field1, "your read key")
+
+	if (espwifi.lastRequestSuccessful())
+		basic.showString(value.toString())
+
+	basic.showIcon(espwifi.lastRequestSuccessful() ? IconNames.Yes : IconNames.No, 500)
 })

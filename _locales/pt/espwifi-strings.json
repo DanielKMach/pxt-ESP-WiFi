@@ -1,0 +1,21 @@
+{
+	"espwifi.initialize|block": "inicializar ESP|TX %tx|RX %rx|à taxa de transmissão %baudrate",
+	"espwifi.connectWifi|block": "conectar à rede Wi-Fi %name usando a senha %password",
+	"espwifi.connectWifi|ip.defl": "nome da rede",
+	"espwifi.connectWifi|ip.password": "senha da rede",
+	"espwifi.disconnectWifi|block": "desconectar da rede Wi-Fi",
+	"espwifi.request|block": "fazer solicitação GET %url para %ip",
+	"espwifi.restoreFactoryDefault|block": "restaurar ESP ao padrão de fábrica",
+	"espwifi.restart|block": "reiniciar ESP",
+	"espwifi.dataFromLastRequest|block": "dados da última solicitação",
+	"espwifi.isWifiConnected|block": "ESP está conectado à rede Wi-Fi",
+	"espwifi.connectedWifiName|block": "nome da rede Wi-Fi",
+	"espwifi.lastRequestSuccessful|block": "última solicitação executada com sucesso",
+	"espwifi.isReady|block": "ESP está presente",
+
+	"espwifi.thingSpeakSetField|block": "definir campo %field do ThingSpeak para %value usando a chave %key",
+	"espwifi.thingSpeakSetFields|block": "definir campos do ThingSpeak usando a chave %key|campo 1 para %field1|campo 2 para %field2|campo 3 para %field3|campo 4 para %field4|campo 5 para %field5|campo 6 para %field6|campo 7 para %field7|campo 8 para %field8",
+	"espwifi.thingSpeakGetField|block": "valor do campo %field do ThingSpeak usando a chave %key",
+	"espwifi.iftttTrigger|block": "acionar evento IFTTT %event usando a chave %key",
+	"espwifi.iftttTriggerValues|block": "acionar evento IFTTT %event usando a chave %key|valor 1 como %value1|valor 2 como %value2|valor 3 como %value3"
+}

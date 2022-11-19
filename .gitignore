@@ -6,3 +6,7 @@ pxt_modules
 *.db
 *.tgz
 .header.json
+.travis.yml
+Makefile
+package-lock.json
+package.json
